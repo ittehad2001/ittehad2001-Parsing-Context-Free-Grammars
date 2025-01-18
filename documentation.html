@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=fill, initial-scale=1.0" />
+    <title>Documentation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="px-5 py-4">
+    <header class="container">
+      <a
+        href="/index.html"
+        class="text-md bg-blue-600 text-white px-6 py-2 rounded-md"
+        >Go Back</a
+      >
+    </header>
+
+    <article class="text-md mt-5">
+      <h1 class="text-2xl font-semibold">
+        Parsing Context-Free Grammars
+      </h1>
+
+      <div class="mt-2">
+        <h2 class="text-lg font-semibold">Introduction</h2>
+        <p class="text-base my-2">
+          Welcome to the Team Chill LL(1) Parser! This project implements an LL(1) parser for context-free grammars. LL(1) parsers are top-down parsers that use a single lookahead symbol to make parsing decisions. This parser analyzes a string of symbols and checks whether it can be derived from a given context-free grammar, displaying the result as Accepted or Rejected.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="text-lg font-semibold">Features</h2>
+        <p class="my-2 ml-2">
+          1. Grammar Input <br />
+          2. Start Symbol Input <br />
+          3. Generate Parsing Table <br />
+          4. Parse String <br />
+          5. Reset Functionality <br />
+        </p>
+
+        <div class="ml-2">
+          <p>
+            <span class="font-semibold">1. Grammar Input: </span>
+            You can define your grammar by entering one rule per line in the format: 
+            <pre class="bg-gray-200 p-2 rounded-md">
+              Non-terminal -> Right-hand side symbols
+            </pre>
+          </p>
+          <p>
+            <span class="font-semibold">2. Start Symbol Input: </span>
+            Enter the start symbol for the grammar, which is the non-terminal from which the parsing process begins.
+          </p>
+          <p>
+            <span class="font-semibold">3. Generate Parsing Table: </span>
+            Click the "Generate Parser" button to automatically generate the LL(1) parsing table based on the grammar input.
+          </p>
+          <p>
+            <span class="font-semibold">4. Parse String: </span>
+            Input a string to be parsed, and the parser will analyze whether the string can be derived from the grammar.
+          </p>
+          <p>
+            <span class="font-semibold">5. Reset Functionality: </span>
+            Use the reset button to clear all inputs and results for a fresh start.
+          </p>
+        </div>
+      </div>
+
+      <div class="my-3">
+        <h2 class="text-lg font-semibold">Implemented Methodology</h2>
+        <p class="ml-2">
+          1. **First Set Computation** <br />
+          2. **Follow Set Computation** <br />
+          3. **Parse Table Construction** <br />
+          4. **Top-Down Parsing Process** <br />
+        </p>
+      </div>
+
+      <div class="my-3">
+        <h2 class="text-lg font-semibold">Example</h2>
+        <p class="ml-2">
+          Here's an example of how to define a simple grammar and parse a string:
+        </p>
+        <p>
+          Grammar:
+          <pre class="bg-gray-200 p-2 rounded-md">
+            S -> A B
+            A -> a
+            A -> ε
+            B -> b
+          </pre>
+        </p>
+        <p>
+          Start Symbol: `S`
+        </p>
+        <p>
+          Input String: `a b`
+        </p>
+        <h3 class="text-md font-semibold mt-3">Parsing Table</h3>
+        <pre class="bg-gray-200 p-2 rounded-md">
+          | Non-Terminal | Terminal | Production |
+          |--------------|----------|------------|
+          | S            | a        | S -> A B   |
+          | A            | a        | A -> a     |
+          | B            | b        | B -> b     |
+        </pre>
+        <p>
+          Result: Accepted
+        </p>
+      </div>
+
+      <div class="my-3">
+        <h2 class="text-lg font-semibold">Conclusion</h2>
+        <p>
+          The Team Chill LL(1) Parser is an efficient tool for parsing context-free grammars using the LL(1) parsing method. It allows users to input a grammar, generate a parsing table, and parse strings to check if they are accepted by the grammar. Whether you're learning parsing algorithms or building parsers for specific applications, this tool provides a simple yet powerful approach to syntactic analysis.
+        </p>
+      </div>
+    </article>
+    
+    <footer class="mt-5">
+      <p class="text-center text-sm text-gray-500">© 2025 Team 7</p>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LL(1) Parser Project</title>
+    <script src="ll1_parser_logic.js" defer></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="h-screen bg-gray-100">
+    <a href="./documentation.html" class="fixed top-2 right-3 bg-gray-500 text-md px-3 py-2 rounded-md text-white">Documentation</a>
+
+    <div class="text-center py-6 px-2 container">
+      
+      <h2 class="text-3xl font-semibold text-blue-500">Project Topic: Parsing Context-Free Grammars</h2>
+    </div>
+
+    <div class="grid md:grid-cols-2 px-4 md:px-8">
+      <!-- Grammar Input Section -->
+      <form onsubmit="event.preventDefault();">
+        <div class="mb-6">
+          <label for="grammarRules" class="block text-lg font-medium text-gray-700">Enter Grammar Rules (e.g., S -> A B):</label>
+          <textarea id="grammarRules" class="border border-gray-300 rounded-md w-full px-3 py-2 mt-1 mb-5 text-sm text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-blue-500" rows="5" placeholder="S -> A B\nA -> a\nA -> ε"></textarea>
+        </div>
+
+        <div class="mb-6">
+          <label for="startSymbol" class="block text-lg font-medium text-gray-700">Enter Start Symbol:</label>
+          <input type="text" id="startSymbol" class="border border-gray-300 rounded-md w-full px-3 py-2 mt-1 mb-5 text-sm text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-blue-500" placeholder="e.g., S">
+        </div>
+
+        <div class="flex gap-2">
+          <button type="button" id="generateParser" class="bg-green-600 w-full px-4 py-2 text-white rounded-md hover:bg-green-500">Generate Parser</button>
+          <button type="button" onclick="resetForm()" class="bg-red-500 w-full px-4 py-2 text-white rounded-md hover:bg-red-400">Reset</button>
+        </div>
+      </form>
+
+      <!-- Parsing Table Section -->
+      <div class="md:px-5 mt-4">
+        <h3 class="text-lg font-medium text-gray-700 mb-2">Parsing Table:</h3>
+        <div class="overflow-x-auto">
+          <table class="table-auto border-collapse border border-gray-300 w-full text-sm">
+            <thead>
+              <tr class="bg-gray-200">
+                <th class="border border-gray-300 px-4 py-2">Non-Terminal</th>
+                <th class="border border-gray-300 px-4 py-2">Terminal</th>
+                <th class="border border-gray-300 px-4 py-2">Production</th>
+              </tr>
+            </thead>
+            <tbody id="parsingTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- String Parsing Section -->
+    <div class="grid md:grid-cols-2 px-4 md:px-8 mt-6">
+      <div class="mb-6">
+        <label for="testString" class="block text-lg font-medium text-gray-700">Enter String to Parse:</label>
+        <input type="text" id="testString" class="border border-gray-300 rounded-md w-full px-3 py-2 mt-1 text-sm text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-blue-500" placeholder="e.g., a a">
+        <button type="button" id="parseString" class="bg-blue-600 w-full mt-4 px-4 py-2 text-white rounded-md hover:bg-blue-500">Parse String</button>
+      </div>
+
+      <div class="md:px-5">
+        <h3 class="text-lg font-medium text-gray-700 mb-2">Parsing Result:</h3>
+        <div id="result" class="p-4 rounded-md hidden"></div>
+      </div>
+    </div>
+
+   
+  </body>
+</html>
